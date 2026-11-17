@@ -1,0 +1,19 @@
+{# V — VISTA base: el "molde" que comparten todas las páginas. En PHP este <head> se repetía en cada archivo. #}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+    <main class="tarjeta">
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% block contenido %}{% endblock %}
+    </main>
+</body>
+</html>
